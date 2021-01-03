@@ -11,9 +11,13 @@ all_files=[]
 for dirname, _, filenames in os.walk('datasets/Combination'):
     for filename in filenames:
         all_files.append(filename)
-print(all_files)
-df=pd.concat(all_files)
-print(df.head())
+#print(all_files)
+all_df=[]
+for file in all_files:
+    df=pd.read_csv(os.path.join('datasets/Combination',file),sep='\t',header=None)
+    all_df.append(df)
+
+print(all_df)
 """
 df=pd.read_csv("datasets/Combination/yelp_labelled.txt",sep='\t',header=None)
 df.columns=['body_text','label']
