@@ -23,6 +23,14 @@ concatenated_df["body_text_nonstop"]=concatenated_df['body_text'].apply(lambda x
 print(concatenated_df.head())
 print("Dataframe shape",concatenated_df.shape)
 print("Number of samples",concatenated_df.label.value_counts())
+"""
+Number of samples 1    1386
+0    1362
+Name: label, dtype: int64
+"""
+stemmed=list(concatenated_df['body_text_nonstop'])
+counts=[len(row) for row in stemmed]
+print("Average number of tokens for each sentence after stemming",sum(counts)/len(counts))
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = 'positive','negative'
 sizes = [1385,1362]
