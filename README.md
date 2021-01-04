@@ -21,4 +21,4 @@ Bellow is a simplified distribution chart
 
 ![pie chart 2](/datasets/stanfordSentimentTreebank/standford_pie_neutral.png "Label distribution")
 
-Using this code we created a unified file to work on later: [exploration_nlp](https://github.com/fabianhoegger/NLP-Data-Exploration/exploration_stanford.py)
+Using this code we created a unified file to work on later: [exploration_stanford](https://github.com/fabianhoegger/NLP-Data-Exploration/exploration_stanford.py)
