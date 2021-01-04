@@ -22,3 +22,12 @@ Bellow is a simplified distribution chart
 ![pie chart 2](/datasets/stanfordSentimentTreebank/standford_pie_neutral.png "Label distribution")
 
 Using this code we created a unified file to work on later: [exploration_stanford](https://github.com/fabianhoegger/NLP-Data-Exploration/exploration_stanford.py)
+
+## US Airline Tweet Dataset
+
+The US Airline tweet dataset is made of **14640** tweets each annotated as positive,neutral or negative .Additionally it has a "negativereason" where it states the reason that a tweet is negative and even a negativereason confidence level column.
+Bellow there's a chart showing the percentage of positive,negative and neutral tweets
+
+![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+
+Data exploration code for this dataset: [explore_tweets](https://github.com/fabianhoegger/NLP-Data-Exploration/explore_tweets.py)
