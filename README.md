@@ -9,6 +9,7 @@ The dataset is a combination of amazon ,imdb and yelp reviews.
 
 ![pie chart](/datasets/Combination/combination_pie_chart.png "Label distribution")
 
+Using this code we created a unified file to work on later: [exploration_nlp](https://github.com/fabianhoegger/NLP-Data-Exploration/exploration_nlp.py)
 The csv file is available here:[multimedia.csv](https://github.com/fabianhoegger/NLP-Data-Exploration/tree/main/datasets/Combination)
 
 ## Stanford Dataset
@@ -19,3 +20,5 @@ The dataset comes with annotated reviews in a score of 0 to 1 meaning:
 Bellow is a simplified distribution chart
 
 ![pie chart 2](/datasets/stanfordSentimentTreebank/standford_pie_neutral.png "Label distribution")
+
+Using this code we created a unified file to work on later: [exploration_nlp](https://github.com/fabianhoegger/NLP-Data-Exploration/exploration_stanford.py)
