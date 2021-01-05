@@ -42,7 +42,7 @@ X_test_vect=pd.concat([X_test[['body_len','punct_percent']].reset_index(drop=Tru
 print(X_train_vect.head())
 
 from sklearn.metrics import precision_recall_fscore_support as score
-rf=RandomForestClassifier(n_estimators=50,max_depth=20,n_jobs=-1)
+rf=RandomForestClassifier(n_estimators=150,max_depth=None,n_jobs=-1)
 rf_model=rf.fit(X_train_vect,y_train)
 
 
@@ -51,3 +51,9 @@ y_pred=rf_model.predict(X_test_vect)
 precision,recall,fscore,support=score(y_test,y_pred,pos_label=1,average="binary")
 print("precision={},recall={},accuracy={}".format(round(precision,3),round(recall,3),round((y_pred==y_test).sum()/len(y_test),3)))
 #precision=0.77,recall=0.746,accuracy=0.758
+#FEATURE IMPORTANCE [(0.01888935523262042, 'body_text'), (0.011270086616209096, 'body_len'), (0.00927560457799738, 'punct_percent')]
+#precision=0.78,recall=0.709,accuracy=0.755
+"""
+FEATURE IMPORTANCE [(0.02622180998302381, 'body_text'), (0.02189899357988389, 'body_len'), (0.011993551647256951, 'punct_percent')]
+precision=0.888,recall=0.73,accuracy=0.8
+"""
