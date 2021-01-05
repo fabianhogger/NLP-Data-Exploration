@@ -7,11 +7,12 @@ import string
 df=pd.read_csv("datasets/Combination/combination.csv")
 #print(df.head(5))
 ps=nltk.PorterStemmer()
+wn=nltk.WordNetLemmatizer()
 stopwords=nltk.corpus.stopwords.words('english')
 def clean_text(text):
     text=''.join([char for char in text if char not in string.punctuation])
     tokens=re.split('\W+',text)
-    text=[ps.stem(word) for word in tokens if word not in stopwords]
+    text=[wn.lemmatize(word) for word in tokens if word not in stopwords]
     return text
 def count_punct(text):
     count=sum([1 for char in text if char in string.punctuation])
@@ -54,6 +55,19 @@ print("precision={},recall={},accuracy={}".format(round(precision,3),round(recal
 #FEATURE IMPORTANCE [(0.01888935523262042, 'body_text'), (0.011270086616209096, 'body_len'), (0.00927560457799738, 'punct_percent')]
 #precision=0.78,recall=0.709,accuracy=0.755
 """
+stemming
+n_estimators=150,max_depth=None
 FEATURE IMPORTANCE [(0.02622180998302381, 'body_text'), (0.02189899357988389, 'body_len'), (0.011993551647256951, 'punct_percent')]
 precision=0.888,recall=0.73,accuracy=0.8
+"""
+"""
+lemmatize
+n_estimators=50,max_depth=20
+FEATURE IMPORTANCE [(0.014376387792706726, 'body_text'), (0.010722588357615026, 'body_len'), (0.006830777814888046, 'punct_percent')]
+precision=0.807,recall=0.658,accuracy=0.735
+"""
+"""
+lemmatize
+n_estimators=150,max_depth=None
+precision=0.805,recall=0.639,accuracy=0.733
 """
