@@ -28,7 +28,7 @@ X_test_count=X_counts_fit.transform(X_test['body_text'])
 X_train_count=pd.DataFrame(X_train_count.toarray())
 X_test_count=pd.DataFrame(X_test_count.toarray())
 from sklearn.metrics import precision_recall_fscore_support as score
-rf=RandomForestClassifier(n_estimators=150,max_depth=None,n_jobs=-1)
+rf=RandomForestClassifier(n_estimators=50,max_depth=20,n_jobs=-1)
 rf_model=rf.fit(X_train_count,y_train)
 
 print("FEATURE IMPORTANCE",sorted(zip(rf_model.feature_importances_,X_train.columns),reverse=True)[:10])
@@ -52,6 +52,11 @@ stemming
 n_estimators=150,max_depth=None ,correct count vectorization
 FEATURE IMPORTANCE [(0.006252591103621767, 'body_text')]
 precision=0.798,recall=0.792,accuracy=0.804
+"""
+"""
+lemmatize
+n_estimators=50,max_depth=20
+precision=0.78,recall=0.644,accuracy=0.736
 """
 """
 lemmatize
