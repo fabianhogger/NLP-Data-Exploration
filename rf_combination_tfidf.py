@@ -13,10 +13,19 @@ def clean_text(text):
     tokens=re.split('\W+',text)
     text=[ps.stem(word) for word in tokens if word not in stopwords]
     return text
+def count_punct(text):
+    count=sum([1 for char in text if char in string.punctuation])
+    return count/(len(text)-text.count(" "))
+
+
+df['body_len']=df["body_text"].apply(lambda x:len(x)-x.count(" "))
+df["punct_percent"]=df["body_text"].apply(lambda x:count_punct(x))
+
+
 
 from sklearn.model_selection import  train_test_split
 
-X_train,X_test,y_train,y_test=train_test_split(df[['body_text']],df['label'],test_size=0.2)
+X_train,X_test,y_train,y_test=train_test_split(df[['body_text','body_len','punct_percent']],df['label'],test_size=0.2)
 print(X_train.head())
 tfidf_vec=TfidfVectorizer(analyzer=clean_text)#Empty OBject
 tfidf_fit=tfidf_vec.fit(X_train['body_text'])#Fit on train data
@@ -27,9 +36,9 @@ tfidf_test=tfidf_fit.transform(X_test['body_text'])#T
 
 
 tfidf_train=pd.DataFrame(tfidf_train.toarray())
-X_train_vect=pd.concat([tfidf_train],axis=1)
+X_train_vect=pd.concat([X_train[['body_len','punct_percent']].reset_index(drop=True),tfidf_train],axis=1)
 tfidf_test=pd.DataFrame(tfidf_test.toarray())
-X_test_vect=pd.concat([tfidf_test],axis=1)
+X_test_vect=pd.concat([X_test[['body_len','punct_percent']].reset_index(drop=True),tfidf_test],axis=1)
 print(X_train_vect.head())
 
 from sklearn.metrics import precision_recall_fscore_support as score
