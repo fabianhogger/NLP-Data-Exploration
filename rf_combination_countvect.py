@@ -16,20 +16,22 @@ def clean_text(text):
     return text
 
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect=CountVectorizer(analyzer=clean_text)
-X_counts=count_vect.fit_transform(df['body_text'])
-print(X_counts)
-count_train=pd.DataFrame(X_counts.toarray())
-
-from sklearn.metrics import precision_recall_fscore_support as score
 from sklearn.model_selection import  train_test_split
 
-X_train,X_test,y_train,y_test=train_test_split(count_train,df['label'],test_size=0.2)
+X_train,X_test,y_train,y_test=train_test_split(df[['body_text']],df['label'],test_size=0.2)
+count_vect=CountVectorizer(analyzer=clean_text)
+X_counts_fit=count_vect.fit(X_train['body_text'])
+X_train_count=X_counts_fit.transform(X_train['body_text'])
+X_test_count=X_counts_fit.transform(X_test['body_text'])
+
+X_train_count=pd.DataFrame(X_train_count.toarray())
+X_test_count=pd.DataFrame(X_test_count.toarray())
+from sklearn.metrics import precision_recall_fscore_support as score
 rf=RandomForestClassifier(n_estimators=150,max_depth=None,n_jobs=-1)
-rf_model=rf.fit(X_train,y_train)
+rf_model=rf.fit(X_train_count,y_train)
 
 print("FEATURE IMPORTANCE",sorted(zip(rf_model.feature_importances_,X_train.columns),reverse=True)[:10])
-y_pred=rf_model.predict(X_test)
+y_pred=rf_model.predict(X_test_count)
 precision,recall,fscore,support=score(y_test,y_pred,pos_label=1,average="binary")
 print("precision={},recall={},accuracy={}".format(round(precision,3),round(recall,3),round((y_pred==y_test).sum()/len(y_test),3)))
 """
@@ -39,4 +41,8 @@ precision=0.73,recall=0.833,accuracy=0.773
 """
 FEATURE IMPORTANCE [(0.047104468261371366, 1728), (0.021415349481218537, 1698), (0.0204382582829047, 2274), (0.015495684802355155, 418), (0.01369200651937918, 1387), (0.010846805822180897, 1144), (0.009084474057207375, 2550), (0.00858436744765013, 115), (0.007887952074728045, 275), (0.007474314252670187, 401)]
 precision=0.845,recall=0.707,accuracy=0.793
+"""
+"""
+FEATURE IMPORTANCE [(0.006252591103621767, 'body_text')]
+precision=0.798,recall=0.792,accuracy=0.804
 """
