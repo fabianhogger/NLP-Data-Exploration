@@ -33,3 +33,8 @@ def make_label(word):
 df=df[['text','airline_sentiment']]
 df['label']=df['airline_sentiment'].apply(lambda x:make_label(x))
 print(df.head(5))
+df=df.drop(['airline_sentiment'],axis=1)
+df=df.loc[df['label'].isin([1,0])]
+print(df.shape)
+print(df[100:200])
+df.to_csv(r'datasets/Usairline/tweets_clean.csv',index=False)
