@@ -1,19 +1,16 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-def join_row(thing):
-    row=''.join([word for word in thing])
-    return row
-pd.set_option('display.max_colwidth',1000)
-messages=pd.read_csv('datasets/stanfordSentimentTreebank/stanford_fixed2.csv')
-messages=messages[messages['label'].isin([1.0,0.0])]
+import re
+def remove_at(text):
+    txt=re.sub("@[a-zA-Z0-9]+", "", text)
+    return txt
+
+messages=pd.read_csv('datasets/Usairline/tweets_clean.csv')
+messages['no_at']=messages['text'].apply(lambda x:remove_at(x))
 print(messages.head())
-print(messages['body_text'].isnull().sum())
-messages.dropna(inplace=True)
-print(messages['body_text'].isnull().sum())
-print(messages['label'].value_counts())
 labels=messages['label'].astype('int32')
-X_train,X_test,y_train,y_test=train_test_split(messages['body_text'],labels,test_size=0.2)
+X_train,X_test,y_train,y_test=train_test_split(messages['no_at'],messages['label'],test_size=0.2)
 
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
@@ -28,8 +25,8 @@ X_test_seq=tokenizer.texts_to_sequences(X_test)
 
 
 #Padding
-X_train_seq_padded=pad_sequences(X_train_seq,100)
-X_test_seq_padded=pad_sequences(X_test_seq,100)
+X_train_seq_padded=pad_sequences(X_train_seq,50)
+X_test_seq_padded=pad_sequences(X_test_seq,50)
 
 
 import keras.backend as K
@@ -68,11 +65,19 @@ for i in ['accuracy','precision_m','recall_m']:
     val_acc=history.history['val_{}'.format(i)]
     epochs=range(1,len(acc)+1)
     plt.figure()
-    plt.plot(epochs,acc,label='Training' +i)
+    plt.plot(epochs,acc,label='Training ' +i)
     plt.plot(epochs,val_acc,label='validation '+i)
     plt.legend()
     plt.show()
-# combination.csv loss: 7.6457 - accuracy: 0.5014 - precision_m: 0.5014 - recall_m: 1.0000 - val_loss: 7.3751 - val_accuracy: 0.5164 - val_precision_m: 0.5231 - val_recall_m: 1.0000
+"""
+with 32 shaped rnn and softmax in last layer
+ combination.csv loss: 7.6457 - accuracy: 0.5014 - precision_m: 0.5014 - recall_m: 1.0000 - val_loss: 7.3751 - val_accuracy: 0.5164 - val_precision_m: 0.5231 - val_recall_m: 1.0000
+"""
+"""
+with 64 shaped rnn and sigmoid in last layer
+ combination.csv loss: 0.0581 - accuracy: 0.9877 - precision_m: 0.9913 - recall_m: 0.9843 - val_loss: 0.5946 - val_accuracy: 0.8036 - val_precision_m: 0.8588 - val_recall_m: 0.7805
+"""
+
 """
 stanford with 32 shaped rnn and softmax in last layer
 
@@ -82,4 +87,18 @@ stanford with 32 shaped rnn and softmax in last layer
 stanford with 64 shaped rnn and softmax in last layer
  103s 1ms/step - loss: 6.9663 - accuracy: 0.5457 - precision_m: 0.5457 - recall_m: 1.0000 - val_loss: 6.9180 - val_accuracy: 0.5463 - val_precision_m: 0.5463 - val_recall_m: 1.0000
 
+"""
+"""
+stanford with 64 shaped rnn and sigmoid in last layer
+
+1ms/step - loss: 0.1206 - accuracy: 0.9530 - precision_m: 0.9550 - recall_m: 0.9590 - val_loss: 0.2675 - val_accuracy: 0.9139 - val_precision_m: 0.9110 - val_recall_m: 0.9336
+"""
+"""
+tweets with 32 shaped rnn and softmax in last layer
+
+tep - loss: 12.2440 - accuracy: 0.2015 - precision_m: 0.2013 - recall_m: 1.0000 - val_loss: 11.9273 - val_accuracy: 0.2178 - val_precision_m: 0.2153 - val_recall_m: 0.9863
+"""
+"""
+tweets with 64 shaped rnn and sigmoid in last layer
+- 5s 561us/step - loss: 0.0263 - accuracy: 0.9922 - precision_m: 0.9839 - recall_m: 0.9794 - val_loss: 0.3782 - val_accuracy: 0.9095 - val_precision_m: 0.8167 - val_recall_m: 0.6828
 """
