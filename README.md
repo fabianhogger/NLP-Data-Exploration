@@ -31,3 +31,11 @@ Bellow there's a chart showing the percentage of positive,negative and neutral t
 ![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
 
 Data exploration code for this dataset: [explore_tweets](https://github.com/fabianhoegger/NLP-Data-Exploration/explore_tweets.py)
+
+
+## Random Forest Classification
+
+Using the RandomForestClassifier provided by the sklearn library we tried to train the algorithm with the data preprocessed in different ways and we made some changes in the algorithm's parameters to see how it affected the result.
+
+
+### Combination of reviews
