@@ -41,6 +41,7 @@ Using the RandomForestClassifier provided by the sklearn library we tried to tra
 ### Combination of reviews
 
 
-| Method |#1| #2 |
-| Stemming | :---: | :---: | 
-| Lemmatizing | 301 | 283 |
+Method  | Parameters | Precision | Recall | Accuracy |
+------- | ---------- | --------- | ------ | -------- |
+Stemming| Content C  |           |        |          |
+lemmat  |            |           |        |          |
