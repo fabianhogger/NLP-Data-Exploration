@@ -41,6 +41,6 @@ Using the RandomForestClassifier provided by the sklearn library we tried to tra
 ### Combination of reviews
 
 
-| Method | n_estimators=50,max_depth=20| n_estimators=50,max_depth=20 |
+| Method |#1| #2 |
 | Stemming | :---: | :---: | :---: | :---: || :---: | :---: |
 | Lemmatizing | 301 | 283 |
