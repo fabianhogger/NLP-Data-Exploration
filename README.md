@@ -39,9 +39,18 @@ Using the RandomForestClassifier provided by the sklearn library we tried to tra
 
 
 ### Combination of reviews
+CountVectorizer-n_est=50,depth=20-Stemming
+CountVectorizer-n_est=50,depth=20-Lemmatizing
+CountVectorizer-n_est=150,depth=None-Stemming
+CountVectorizer-n_est=150,depth=None-Lemmatizing
 
+TfidfVectorizer-n_est=50,depth=20-Stemming
+TfidfVectorizer-n_est=50,depth=20-Lemmatizing
+TfidfVectorizer-n_est=150,depth=None-Stemming
+TfidfVectorizer-n_est=150,depth=None-Lemmatizing
 
-Method  | Parameters | Precision | Recall | Accuracy |
-------- | ---------- | --------- | ------ | -------- |
-Stemming| Content C  |           |        |          |
-lemmat  |            |           |        |          |
+Metrics   | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 |
+--------- | -- | -- | -- | -- | -- | -- | -- | -- |
+Precision |    |    |    |    |    |    |    |    |
+Recall    |    |    |    |    |    |    |    |    |
+Accuracy  |    |    |    |    |    |    |    |    |
