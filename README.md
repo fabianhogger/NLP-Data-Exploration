@@ -50,7 +50,8 @@ For each dataset there was used a combination of preprocessing methods that are 
 6. tfidf--Lemmatizing--n_est=**50**,max_depth=**20**
 7. tfidf--Stemming--n_est=**150**,max_depth=__None__
 8. tfidf--Lemmatizing--n_est=**150**,max_depth=__None__
-(n_est=number of Randomforest estimators)
+
+*(n_est=number of Randomforest estimators)
 
 Metrics   | #1   | #2   | #3   | #4   | #5   | #6   | #7   | #8   |
 --------- | --   | --   | --   | --   | --   | --   | --   | --   |
