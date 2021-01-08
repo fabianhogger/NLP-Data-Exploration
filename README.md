@@ -51,8 +51,8 @@ For each dataset there was used a combination of preprocessing methods that are 
 7. TfidfVectorizer-Stemming-n_estimators=150,max_depth=None
 8. TfidfVectorizer-Lemmatizing-n_estimators=150,max_depth=None
 
-Metrics   | #1   | #2 | #3 | #4 | #5 | #6 | #7 | #8 |
---------- | --   | -- | -- | -- | -- | -- | -- | -- |
-Precision | 0.73 |    |    |    |    |    |    |    |
-Recall    | 0.83 |    |    |    |    |    |    |    |
-Accuracy  | 0.77 |    |    |    |    |    |    |    |
+Metrics   | #1   | #2   | #3 | #4 | #5 | #6 | #7 | #8 |
+--------- | --   | --   | -- | -- | -- | -- | -- | -- |
+Precision | 0.73 | 0.78 |    |    |    |    |    |    |
+Recall    | 0.83 | 0.64 |    |    |    |    |    |    |
+Accuracy  | 0.77 | 0.73 |    |    |    |    |    |    |
