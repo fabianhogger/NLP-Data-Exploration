@@ -42,5 +42,5 @@ Using the RandomForestClassifier provided by the sklearn library we tried to tra
 
 
 | Method |#1| #2 |
-| Stemming | :---: | :---: | :---: | :---: || :---: | :---: |
+| Stemming | :---: | :---: | 
 | Lemmatizing | 301 | 283 |
