@@ -38,19 +38,21 @@ Data exploration code for this dataset: [explore_tweets](https://github.com/fabi
 Using the RandomForestClassifier provided by the sklearn library we tried to train the algorithm with the data preprocessed in different ways and we made some changes in the algorithm's parameters to see how it affected the result.
 
 
-### Combination of reviews
-CountVectorizer-n_est=50,depth=20-Stemming
-CountVectorizer-n_est=50,depth=20-Lemmatizing
-CountVectorizer-n_est=150,depth=None-Stemming
-CountVectorizer-n_est=150,depth=None-Lemmatizing
+### Methods
 
-TfidfVectorizer-n_est=50,depth=20-Stemming
-TfidfVectorizer-n_est=50,depth=20-Lemmatizing
-TfidfVectorizer-n_est=150,depth=None-Stemming
-TfidfVectorizer-n_est=150,depth=None-Lemmatizing
+For each dataset there was used a combination of preprocessing methods that are listed bellow
 
-Metrics   | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 |
---------- | -- | -- | -- | -- | -- | -- | -- | -- |
-Precision |    |    |    |    |    |    |    |    |
-Recall    |    |    |    |    |    |    |    |    |
-Accuracy  |    |    |    |    |    |    |    |    |
+1. CountVectorizer-Stemming-n_estimators=50,max_depth=20
+2. CountVectorizer-Lemmatizing-n_estimators=50,max_depth=20
+3. CountVectorizer-Stemming-n_estimators=150,max_depth=None
+4. CountVectorizer-Lemmatizing-n_estimators=150,max_depth=None
+5. TfidfVectorizer-Stemming-n_estimators=50,max_depth=20
+6. TfidfVectorizer-Lemmatizing-n_estimators=50,max_depth=20
+7. TfidfVectorizer-Stemming-n_estimators=150,max_depth=None
+8. TfidfVectorizer-Lemmatizing-n_estimators=150,max_depth=None
+
+Metrics   | #1   | #2 | #3 | #4 | #5 | #6 | #7 | #8 |
+--------- | --   | -- | -- | -- | -- | -- | -- | -- |
+Precision | 0.73 |    |    |    |    |    |    |    |
+Recall    | 0.83 |    |    |    |    |    |    |    |
+Accuracy  | 0.77 |    |    |    |    |    |    |    |
