@@ -7,13 +7,13 @@ from sklearn.ensemble import RandomForestClassifier
 
 df=pd.read_csv("datasets/Combination/combination.csv")
 print(df.head(5))
-#ps=nltk.PorterStemmer()
+ps=nltk.PorterStemmer()
 wn=nltk.WordNetLemmatizer()
 stopwords=nltk.corpus.stopwords.words('english')
 def clean_text(text):
     text=''.join([char for char in text if char not in string.punctuation])
     tokens=re.split('\W+',text)
-    text=[wn.lemmatize(word) for word in tokens if word not in stopwords]
+    text=[ps.stem(word) for word in tokens if word not in stopwords]
     return text
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -39,7 +39,7 @@ print("precision={},recall={},accuracy={}".format(round(precision,3),round(recal
 stemming
 n_estimators=50,max_depth=20
 FEATURE IMPORTANCE [(0.06695298628623501, 1728), (0.043137360198200365, 418), (0.03893031817218898, 2274), (0.030679850095938526, 1698), (0.026339039536004805, 1387), (0.021229975155907393, 4114), (0.0190946334228831, 2859), (0.01705063820820016, 4225), (0.017032145694018275, 2583), (0.016900318166265464, 2903)]
-precision=0.73,recall=0.833,accuracy=0.773
+precision=0.668,recall=0.854,accuracy=0.722
 """
 """
 stemming
