@@ -42,14 +42,14 @@ Using the RandomForestClassifier provided by the sklearn library we tried to tra
 
 For each dataset there was used a combination of preprocessing methods that are listed bellow
 
-1. CountVectorizer(CV)--Stemming--n_est=50,max_depth=20
-2. CV--Lemmatizing--n_est=50,max_depth=20
-3. CV--Stemming--n_est=150,max_depth=None
-4. CV--Lemmatizing--n_est=150,max_depth=None
-5. TfidfVectorizer(tfidf)--Stemming--n_est=50,max_depth=20
-6. tfidf--Lemmatizing--n_est=50,max_depth=20
-7. tfidf--Stemming--n_est=150,max_depth=None
-8. tfidf--Lemmatizing--n_est=150,max_depth=None
+1. __CountVectorizer__(CV)--Stemming--n_est=**50**,max_depth=**20**
+2. CV--Lemmatizing--n_est=**50**,max_depth=**20**
+3. CV--Stemming--n_est=**150**,max_depth=__None__
+4. CV--Lemmatizing--n_est=**150**,max_depth=__None__
+5. __TfidfVectorizer__(tfidf)--Stemming--n_est=**50**,max_depth=**20**
+6. tfidf--Lemmatizing--n_est=**50**,max_depth=**20**
+7. tfidf--Stemming--n_est=**150**,max_depth=__None__
+8. tfidf--Lemmatizing--n_est=**150**,max_depth=__None__
 (n_est=number of Randomforest estimators)
 
 Metrics   | #1   | #2   | #3   | #4   | #5   | #6   | #7   | #8   |
