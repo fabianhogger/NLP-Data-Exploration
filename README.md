@@ -56,4 +56,4 @@ Metrics   | #1   | #2   | #3   | #4   | #5   | #6   | #7   | #8   |
 Precision | 0.66 | 0.78 | 0.79 | 0.81 | 0.78 | 0.80 | 0.88 | 0.80 |
 Recall    | 0.85 | 0.64 | 0.79 | 0.64 | 0.70 | 0.65 | 0.73 | 0.65 |
 Accuracy  | 0.72 | 0.73 | 0.80 | 0.75 | 0.75 | 0.73 | 0.80 | 0.73 |
-Preprocessing|  Count Vectorization   |  Tf-idf Vectorization     |
+Preprocessing|  Count| Vector | ization |   |  Tf-idf| Vector |ization     |
