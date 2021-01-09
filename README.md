@@ -88,5 +88,48 @@ Looking at the tables above we can see that there is not a big difference in the
 The same is true if you compare column #2 and #4  and so on.
 For each dataset there's relatively small differences. For example in the last dataset
 the recall value for parameters(estimators =150 and depth=None) was close to zero.
+__Note__: because 2/3 datasets had also neutral sentences we removed them leading to
+the Airline dataset being unbalanced.
 
 ## RNN
+
+  Lastly we trained a basic Rnn with the data using as preprocessing only the
+  standard keras tokenizer that creates a vocabulary of words in the text and assigns a number
+  to it.
+
+  architecture picture
+  1.  32 output shaped rnn and softmax in last layer
+  2.  64 output shaped rnn and sigmoid in last layer
+
+### Combination of reviews
+
+  Metrics   | #1    | validation | #2   | validation |
+  --------- | --    | ---------- | ---- | --------   |
+  Precision | 0.5014| 0.5231     |0.9913| 0.8588     |
+  Recall    | 1.000 | 1.000      |0.9843| 0.7805     |
+  Accuracy  | 0.5014| 0.5164     |0.9877| 0.8036     |
+
+  ![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+### Stanford dataset
+
+  Metrics   | #1   | validation | #2   | validation |
+  --------- | --   | ---------- | ---- | --------   |
+  Precision | 1.0  | 1.0        | 0.9550 | 0.9110   |
+  Recall    |0.006 | 0.002      | 0.9590 | 0.9336   |
+  Accuracy  |0.79  | 0.78       | 0.9530 | 0.9139   |
+105s 1ms/step - loss: 6.9745 - accuracy: 0.5451 - precision_m: 0.5451 - recall_m: 1.0000 - val_loss: 6.8855 - val_accuracy: 0.5485 - val_precision_m: 0.5485 - val_recall_m: 1.0000
+![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+![tweet chart ](/datasets/USairline/pie_chart.png "Label distribution")
+### Tweeter Airline Dataset
+
+  Metrics   | #1   | validation | #2   | validation |
+  --------- | --   | ---------- | ---- | --------   |
+  Precision |0.2013| 0.2153     |0.9839| 0.8167     |
+  Recall    |1.0000|0.9863      |0.9794| 0.6828     |
+  Accuracy  |0.2015|0.2178      |0.9922| 0.9095     |
+![tweet acc ](/datasets/USairline/rnn_acc_tweets.png "Label distribution")
+![tweet pre ](/datasets/USairline/rnn_pre_tweets.png "Label distribution")
+![tweet rec ](/datasets/USairline/rnn_rec_tweets.png "Label distribution")
