@@ -54,6 +54,7 @@ For each dataset there was used a combination of preprocessing methods that are 
 *(n_est=number of Randomforest estimators)
 ### Combination of Reviews
 
+
 Metrics   | #1   | #2   | #3   | #4   | #5   | #6   | #7   | #8   |
 --------- | --   | --   | --   | --   | --   | --   | --   | --   |
 Precision | 0.66 | 0.78 | 0.79 | 0.81 | 0.78 | 0.80 | 0.88 | 0.80 |
@@ -61,10 +62,6 @@ Recall    | 0.85 | 0.64 | 0.79 | 0.64 | 0.70 | 0.65 | 0.73 | 0.65 |
 Accuracy  | 0.72 | 0.73 | 0.80 | 0.75 | 0.75 | 0.73 | 0.80 | 0.73 |
 Preprocessing| CV |CV |CV |CV | tfidf| tfidf| tfidf| tfidf|
 
-Looking at the table above we can see that there is not a big difference in the results comparing
-lemmatizing & stemming. For example comparing column #1 and #2 with each other or #3 and #4 with each other
-there's a minimal difference.On the other hand if you compare columns where there's different parameters you can see an improvement.For instance if you compare #1 and #3 you can see an improvement both in Precision and Accuracy.
-The same is true if you compare column #2 and #4  and so on.
 ### Stanford dataset
 
 
@@ -84,3 +81,12 @@ Precision | 1.0  | 1.0  | 0.86 | 0.86 | 0.96 | 1.00 | 0.84 | 0.80 |
 Recall    |0.006 |0.002 | 0.62 | 0.64 | 0.17 | 0.01 | 0.63 | 0.61 |
 Accuracy  |0.79  |0.78  | 0.89 | 0.90 | 0.83 | 0.80 | 0.90 | 0.89 |
 Preprocessing| CV |CV |CV |CV | tfidf| tfidf| tfidf| tfidf|
+
+### Results
+
+Looking at the tables above we can see that there is not a big difference in the results comparing lemmatizing & stemming. For example comparing column #1 and #2 with each other or #3 and #4 with each other there's a minimal difference.On the other hand if you compare columns where there's different parameters you can see an improvement. For instance if you compare #1 and #3 you can see an improvement both in Precision and Accuracy.
+The same is true if you compare column #2 and #4  and so on.
+For each dataset there's relatively small differences. For example in the last dataset
+the recall value for parameters(estimators =150 and depth=None) was close to zero.
+
+## RNN
