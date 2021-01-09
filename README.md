@@ -70,9 +70,9 @@ The same is true if you compare column #2 and #4  and so on.
 
 Metrics   | #1   | #2   | #3   | #4   | #5   | #6   | #7   | #8   |
 --------- | --   | --   | --   | --   | --   | --   | --   | --   |
-Precision | 0.61 | 0.60 | 0.89 | 0.89 |  |      |  |      |
-Recall    | 0.98 | 0.98 | 0.94 | 0.93 |  |      |  |      |
-Accuracy  | 0.65 | 0.64 | 0.90 | 0.90 |  |      |  |      |
+Precision | 0.61 | 0.60 | 0.89 | 0.89 | 0.74 | 0.75 | 0.81 | 0.80 |
+Recall    | 0.98 | 0.98 | 0.94 | 0.93 | 0.88 | 0.88 | 0.88 | 0.88 |
+Accuracy  | 0.65 | 0.64 | 0.90 | 0.90 | 0.77 | 0.78 | 0.82 | 0.82 |
 Preprocessing| CV |CV |CV |CV | tfidf| tfidf| tfidf| tfidf|
 
 ### Tweeter Airline Dataset
