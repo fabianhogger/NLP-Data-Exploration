@@ -76,3 +76,11 @@ Accuracy  | 0.65 | 0.64 | 0.90 | 0.90 | 0.77 | 0.78 | 0.82 | 0.82 |
 Preprocessing| CV |CV |CV |CV | tfidf| tfidf| tfidf| tfidf|
 
 ### Tweeter Airline Dataset
+
+
+Metrics   | #1   | #2   | #3   | #4   | #5   | #6   | #7   | #8   |
+--------- | --   | --   | --   | --   | --   | --   | --   | --   |
+Precision | 1.0  | 1.0  | 0.86 | 0.86 | 0.96 | 1.00 | 0.84 | 0.80 |
+Recall    |0.006 |0.002 | 0.62 | 0.64 | 0.17 | 0.01 | 0.63 | 0.61 |
+Accuracy  |0.79  |0.78  | 0.89 | 0.90 | 0.83 | 0.80 | 0.90 | 0.89 |
+Preprocessing| CV |CV |CV |CV | tfidf| tfidf| tfidf| tfidf|
