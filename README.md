@@ -139,4 +139,4 @@ the Airline dataset being unbalanced.
 #### Graphs
 ![tweet acc ](/datasets/USairline/rnn_acc_tweets.png "Label distribution")
 ![tweet pre ](/datasets/USairline/rnn_pre_tweets.png "Label distribution")
-![tweet rec ](/datasets/USairline/rnn_rec_tweets.png "Label distribution")
+![tweet rec ](/datasets/USairline/rnn_recall_tweets.png "Label distribution")
