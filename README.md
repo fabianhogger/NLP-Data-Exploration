@@ -97,7 +97,9 @@ the Airline dataset being unbalanced.
   standard keras tokenizer that creates a vocabulary of words in the text and assigns a number
   to it.
 
-  architecture picture
+  ![arch1 ](arch1.png "Label distribution")
+  ![arch2 ](arch2.png "Label distribution")
+
   1.  32 output shaped rnn and softmax in last layer
   2.  64 output shaped rnn and sigmoid in last layer
 
