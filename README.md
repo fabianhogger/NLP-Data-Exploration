@@ -1,4 +1,4 @@
-# NLP-Data-Exploration
+# Data-Exploration-for-Sentiment-Analysis
 
 Data exploration for some sentiment analysis datasets
 
