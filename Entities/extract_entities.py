@@ -23,6 +23,7 @@ def levensthein(word1,word2):
     return fuzz.token_set_ratio(word1.lower(),word2.lower())
 #Store entities in a list of tuples
 def process_for_ner(doc):
+    doc=nlp(doc)
     entities=[]
     for ent in doc.ents:
         if ent.label_ in ("GPE","ORG","PERSON"):
@@ -44,7 +45,7 @@ def process_for_ner(doc):
                 ratio.append((levensthein(ent[0],entities[i][0]),entities[i][0]))
         #keep entities with score higher than 80(assuming the differences between 80-100 are meaningless)
         #also sorting the resulting list to later get the first entity as the final one
-        candidates=sorted([element[1] for element in ratio if element[0]>80 ])
+        candidates=sorted([element[1] for element in ratio if element[0]>80 ],reverse=True)
         #add candidates in a list of lists to keep each list only once
         if candidates not in all_candidates:
             all_candidates.append(candidates)
@@ -65,7 +66,7 @@ def process_for_ner(doc):
 #    new_Entity=Entity.objects.create(name=ent,type=type)
 #    new_Sentiment=Sentiment.objects.create(article=article_id,entity=new_Entity,sentiment=sentiment)
 
-doc=nlp("The Bush administration has decided to repeal its 20-month-old tariffs on imported steel to head off a trade war that would have included foreign retaliation against products from politically crucial US states.Quoting administration and industry sources, The Washington Post said in its Monday editions that President George Bush is\xa0 likely to announce the decision this week.The officials said they had to allow for the possibility that Bush would make some change in the plan, but a source close to the White House said it was “all but set in stone”, the Post reported.A spokesman for the White House denied a decision had been made to repeal the tariffs.“The matter is still under review and we’ll make announcements when there are announcements to make,” the spokesman said.Ending the tariffs 16 months before schedule could spark a political backlash against Bush in next year’s presidential election in the pivotal steel-producing states of Ohio, Pennsylvania and West Virginia.The Washington Post sources said Bush’s aides concluded they could not run the risk that the European Union would carry out its threat to impose sanctions on citrus fruit from Florida, farm machinery, textiles and other products.A source involved in the negotiations said White House aides looked for some step short of a full repeal that would satisfy the European Union, but concluded that it was “technically possible but practically impossible”, according to the Post.Speculation had mounted that Washington would scrap or roll back the controversial tariffs after it last week sought and obtained an effective delay in retaliatory sanctions by countries opposed to them.The European Union, one of a number of trade partners to take action at the WTO over the levies, had warned it was ready to hit Washington with sanctions on up to $2.2 billion of goods within five days of the WTO approving the court ruling.The Bush administration imposed the duties, initially for up to 30%, in 2002 to help defend the country’s struggling steel industry against cheap imports")
+doc="The Bush administration has decided to repeal its 20-month-old tariffs on imported steel to head off a trade war that would have included foreign retaliation against products from politically crucial US states.Quoting administration and industry sources, The Washington Post said in its Monday editions that President George Bush is\xa0 likely to announce the decision this week.The officials said they had to allow for the possibility that Bush would make some change in the plan, but a source close to the White House said it was “all but set in stone”, the Post reported.A spokesman for the White House denied a decision had been made to repeal the tariffs.“The matter is still under review and we’ll make announcements when there are announcements to make,” the spokesman said.Ending the tariffs 16 months before schedule could spark a political backlash against Bush in next year’s presidential election in the pivotal steel-producing states of Ohio, Pennsylvania and West Virginia.The Washington Post sources said Bush’s aides concluded they could not run the risk that the European Union would carry out its threat to impose sanctions on citrus fruit from Florida, farm machinery, textiles and other products.A source involved in the negotiations said White House aides looked for some step short of a full repeal that would satisfy the European Union, but concluded that it was “technically possible but practically impossible”, according to the Post.Speculation had mounted that Washington would scrap or roll back the controversial tariffs after it last week sought and obtained an effective delay in retaliatory sanctions by countries opposed to them.The European Union, one of a number of trade partners to take action at the WTO over the levies, had warned it was ready to hit Washington with sanctions on up to $2.2 billion of goods within five days of the WTO approving the court ruling.The Bush administration imposed the duties, initially for up to 30%, in 2002 to help defend the country’s struggling steel industry against cheap imports"
 process_for_ner(doc)
 """
 αρθρο --> οντόντητες
@@ -92,6 +93,8 @@ https://www.datawrapper.de/maps/symbol-map
 https://ashutoshtripathi.com/2020/05/04/how-to-perform-sentence-segmentation-or-sentence-tokenization-using-spacy-nlp-series-part-5/
 https://www.datacamp.com/community/tutorials/fuzzy-string-python
 fuzzy string matching
+https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
+activation functions
 
 
 1 βρές entities
@@ -118,6 +121,4 @@ Most viewed story
 1 Σελίδα που δείχνει μερικά άρθρα για το κάθε entity (εφόσον πατηθεί στη προηγούμενη σελίδα)
 
 
-"""
- machinery, textiles and other products.', 'The officials said they had to allow for the possibility that Bush would make some change in the plan, but a source close to the White House said it was “all but set in stone”, the Post reported.', 'A source involved in the negotiations said White House aides looked for some step short of a full repeal that would satisfy the European Union, but concluded that it was “technically possible but practically impossible”, according to the Post.', 'Quoting administration and industry sources, The Washington Post said in its Monday editions that President George Bush is\xa0 likely to announce the decision this week.']}
 """
